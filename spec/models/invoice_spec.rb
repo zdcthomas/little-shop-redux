@@ -1,9 +1,9 @@
 
-Rspec.describe Invoice do
+RSpec.describe Invoice do
   describe 'instantiation' do
     it 'should exist' do
       invoice = Invoice.new(id: 1, merchant_id: 12335938, customer_id: 1, status: 'pending')
-      expect(invocie).to be_instance_of(Invoice)
+      expect(invoice).to be_instance_of(Invoice)
     end
   end
 
@@ -22,6 +22,6 @@ Rspec.describe Invoice do
       end
 
     end
-    
+
   end
 end
