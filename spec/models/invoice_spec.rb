@@ -1,4 +1,3 @@
-
 RSpec.describe Invoice do
   describe 'instantiation' do
     it 'should exist' do
