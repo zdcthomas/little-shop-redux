@@ -7,6 +7,8 @@
   <li><%= merchant.updated_at%>
   </ul>
   <a href="/merchants/<%= merchant.id %>/edit">Edit</a>
-  <form action="/merchants">
-    <input type="hidden" name="_method" VALUE=''>
+  <form action="/merchants/<%= merchant.id %>" method="POST">
+    <input type="hidden" name="_method" VALUE='DELETE'>
+    <input type="submit" value="delete"/>
+  </form>
 <%end%>
