@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'database_cleaner'
 gem 'activerecord'
 gem 'pg'
 gem 'sinatra', require: 'sinatra/base'
