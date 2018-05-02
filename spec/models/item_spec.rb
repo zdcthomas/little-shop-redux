@@ -7,5 +7,12 @@ Rspec.describe Item do
 
       expect(item).to be_valid
     end
+
+    describe 'invalid context' do
+      it 'should be invalid if missing a unique title'
+        item = Item.create(description: 'what item?', price: 0.00)
+
+        expect(item).to_not be_valid
+    end
   end
 end
