@@ -14,5 +14,16 @@ Rspec.describe Item do
 
         expect(item).to_not be_valid
     end
+
+      it 'should be invalid if missing description' do
+        item = Item.create(title: 'empty box', price: 1.00)
+
+        expect(item).to_not be_valid
   end
+
+      it 'should be invalid if missing price' do
+        item = Item.create(title: 'Expensive necklace', description: 'not free')
+
+        expect(item).to_not be_valid
+      end
 end
