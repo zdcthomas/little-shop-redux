@@ -19,7 +19,8 @@ class LittleShopApp < Sinatra::Base
     erb :'merchants/show'
   end
 
-  post '/merchants' do
+  post '/merchants/' do
+    require 'pry'; binding.pry
     merchant = Merchant.new(params[:merchant])
     merchant.save
     redirect '/merchants'
