@@ -1,0 +1,7 @@
+<form action="/merchants/<%= @task.id %>" method="post">
+  <p>Edit</p>
+  <input type="hidden" name="_method" value="PUT" />
+  <input type='text' name='merchant[is]' value="<%= @merchant.is %>"/><br/>
+  <textarea name='merchant[name]'><%= @merchant.name %></textarea><br/>
+  <input type='submit'/>
+</form>

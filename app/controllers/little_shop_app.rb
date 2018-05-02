@@ -4,4 +4,8 @@ class LittleShopApp < Sinatra::Base
     @merchants = Merchant.all
     erb :"merchants/index"
   end
+
+  get '/merchants/:id/edit' do
+    @merchants = Merchant.find(params[:id])
+    erb :edit
 end
