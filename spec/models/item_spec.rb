@@ -1,4 +1,4 @@
-Rspec.describe Item do
+RSpec.describe Item do
 
   describe 'validations' do
     describe 'valid context' do
@@ -26,4 +26,5 @@ Rspec.describe Item do
 
         expect(item).to_not be_valid
       end
+  end
 end
