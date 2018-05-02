@@ -7,6 +7,12 @@ RSpec.describe Merchant do
 
         expect(merchant).to_not be_valid
       end
+
+      it 'has merchant id' do
+        merchant = Merchant.create(id: 12334105, name: 'Shopin1901')
+
+        expect(merchant.name).to eq('Shopin1901')
+      end
     end
   end
 end
