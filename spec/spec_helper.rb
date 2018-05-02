@@ -7,6 +7,7 @@ require 'rspec'
 require 'capybara/dsl'
 
 Capybara.app = LittleShopApp
+Capybara.save_and_open_page_path = 'tmp/capybara'
 DatabaseCleaner.strategy = :truncation
 
 
