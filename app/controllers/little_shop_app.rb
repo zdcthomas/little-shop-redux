@@ -5,6 +5,10 @@ class LittleShopApp < Sinatra::Base
     erb :'merchants/index'
   end
 
+  get '/merchants/new' do
+    erb :'merchants/new'
+  end
+
   get '/merchants/:id/edit' do
     @merchants = Merchant.find(params[:id])
     erb :'merchants/edit'
@@ -16,13 +20,13 @@ class LittleShopApp < Sinatra::Base
   end
 
   post '/merchants' do
-    task = merchant.new(params[:merchant])
-    task.save
+    merchant = Merchant.new(params[:merchant])
+    merchant.save
     redirect '/merchants'
   end
 
   delete '/merchants/:id' do |id|
-  Task.destroy(id.to_i)
-  redirect '/merchants'
+    Task.destroy(id.to_i)
+    redirect '/merchants'
   end
 end
