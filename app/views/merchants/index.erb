@@ -1,0 +1,12 @@
+<h1>Merchants</h1>
+
+<% @merchants.each do |merchant|%>
+  <h3><a href="/merchants/<%= merchant.id %>"><%= merchant.name %></a></h3>
+  <ul>
+  <li><%= merchant.created_at %></li>
+  <li><%= merchant.updated_at%>
+  </ul>
+  <a href="/merchants/<%= merchant.id %>/edit">Edit</a>
+  <form action="/merchants">
+    <input type="hidden" name="_method" VALUE=''>
+<%end%>
