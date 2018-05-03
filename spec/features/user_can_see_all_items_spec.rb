@@ -12,9 +12,9 @@ RSpec.describe 'Visitors' do
     item2_image = 'Users/jamisonordway/Desktop/turing/2module/projects/little-shop-redux/images/default-photo.png'
     item2 = Item.create(title: item2_title, description: item2_description, price: item2_price, img: item2_image)
 
-    expect(page).to have_content(item_title)
-    expect(page).to have_content(item_description)
-    expect(page).to have_content(item_price)
-    expect(page).to have_content(item_image)
+    expect(page).to have_content(item2_title)
+    expect(page).to have_content(item2_description)
+    expect(page).to have_content(item2_price)
+    expect(page).to have_content(item2_image)
   end
 end
