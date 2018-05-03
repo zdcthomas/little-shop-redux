@@ -20,7 +20,8 @@ class LittleShopApp < Sinatra::Base
   end
 
   put '/merchants/:id' do
-    Merchant.update(params[:merchant])
+    merchant = Merchant.find(params[:id])
+    merchant.update(params[:merchant])
     redirect '/merchants'
   end
 
