@@ -4,7 +4,8 @@
 <form class='edit-item' action='/items/<%= @item.id %>' method='post'>
     <input type='hidden' name='_method' value='PUT'>
       <p>Title: <input type='text' name='item[title]' value='<%= @item.title %>'></p>
-      <p>Description: <input type='text' name='item[description]' placeholder='description'></p>
-      <p>Price: <input type ='text' name='item[price]' placeholder='price'></p>
+      <p>Description: <input type='text' name='item[description]' value='<%= @item.description %>'></p>
+      <p>Price: <input type ='text' name='item[price]' value='<%= @item.price %>'></p>
+      <p>Link to Image: <input type='text' name='item[img]' value='<%= @item.img %>'></p>
   <p><input type='submit' value='Submit'></p>
 </form>

@@ -35,5 +35,4 @@ RSpec.describe Item do
 
         expect(item).to_not be_valid
       end
-    end
-end
+  end
