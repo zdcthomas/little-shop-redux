@@ -21,5 +21,14 @@ RSpec.describe 'user visits merchant index page' do
     click_on('Edit')
 
     expect(current_path).to eq('/merchants/1/edit')
-  end 
+  end
+
+  it 'should delete a record when _Delete_ is pressed' do
+    merchant = Merchant.create(name: 'Foo')
+
+    visit('/merchants')
+    click_button('Delete')
+
+    expect(page).to have_content('')
+  end
 end
