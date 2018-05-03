@@ -40,7 +40,7 @@ RSpec.describe 'A User' do
     fill_in 'status', with:'Confirmed'
     click_button 'submit'
 
-    current_path.should eq.'invoices/1'
+    current_path.should eq.('invoices/1')
     expect(page).to_not have_content('Status: pending')
     expect(page).to have_content('Status: Confirmed')
   end
