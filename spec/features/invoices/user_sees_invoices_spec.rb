@@ -18,7 +18,9 @@ RSpec.describe 'A User' do
   describe 'visits a specific invoice' do
     it 'should display a certain invoice if that invoice exists' do
       Invoice.create(id: 1, merchant_id: 12335938, customer_id: 1, status: 'pending')
+
       visit '/invoices/1'
+
       expect(page).to have_content('Status: pending')
       expect(page).to have_content('Merchant Id: 12335938')
       expect(page).to have_content('Customer Id: 1')
@@ -30,4 +32,17 @@ RSpec.describe 'A User' do
       expect(page.status_code).to eq(404)
     end
   end
+
+  describe 'tries to edit an invoice status' do
+    Invoice.create(id: 1, merchant_id: 12335938, customer_id: 1, status: 'pending')
+
+    visit '/invoices/1/edit'
+    fill_in 'status', with:'Confirmed'
+    click_button 'submit'
+
+    current_path.should eq.'invoices/1'
+    expect(page).to_not have_content('Status: pending')
+    expect(page).to have_content('Status: Confirmed')
+  end
+
 end
