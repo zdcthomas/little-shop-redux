@@ -10,7 +10,8 @@ class LittleShopApp < Sinatra::Base
   end
 
   get '/merchants/:id/edit' do
-    @merchants = Merchant.find(params[:id])
+    @merchant = Merchant.find(params[:id])
+    # require 'pry'; binding.pry
     erb :'merchants/edit'
   end
 
