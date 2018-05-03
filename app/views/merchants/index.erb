@@ -7,7 +7,7 @@
     Created at:<li><%= merchant.created_at %></li>
     Updated at:<li><%= merchant.updated_at%></li>
   </ul>
-  <a href="/merchants/<%= merchant.id %>/edit">Edit</a>
+  <a id="edit" href="/merchants/<%= merchant.id %>/edit">Edit</a>
   <form action="/merchants/<%= merchant.id %>" method="POST">
     <input type="hidden" name="_method" VALUE='DELETE'>
     <input type="submit" value="Delete"/>

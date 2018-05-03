@@ -15,5 +15,9 @@ RSpec.describe 'user visits merchant index page' do
   end
 
   it 'should go to /edit when edit is clicked' do
+    visit('/merchants')
+    click_on('Edit')
+
+    expect(current_path).to eq('/edit')
   end 
 end
