@@ -8,14 +8,14 @@ RSpec.describe 'user visits merchant index page' do
   end
 
   it 'should see no merchants when there are none' do
-    merchant = Merchant.create()
+    Merchant.create()
     visit('/merchants')
 
     expect(page).to have_content('')
   end
 
   it 'should go to /edit when edit is clicked' do
-    merchant = Merchant.create(name: 'Test Merch')
+    Merchant.create(name: 'Test Merch')
 
     visit('/merchants')
     click_on('Edit')
@@ -24,7 +24,7 @@ RSpec.describe 'user visits merchant index page' do
   end
 
   it 'should delete a record when _Delete_ is pressed' do
-    merchant = Merchant.create(name: 'Foo')
+    Merchant.create(name: 'Foo')
 
     visit('/merchants')
     click_button('Delete')

@@ -1,5 +1,4 @@
 class LittleShopApp < Sinatra::Base
-
   get ['/merchants', '/merchants/'] do
     @merchants = Merchant.all
     erb :'merchants/index'
@@ -15,7 +14,6 @@ class LittleShopApp < Sinatra::Base
   end
 
   get '/merchants/:id' do
-    require 'pry'; binding.pry
     @merchant = Merchant.find(params[:id])
     erb :'merchants/show'
   end
