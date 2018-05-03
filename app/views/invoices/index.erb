@@ -1,0 +1,11 @@
+<h1>Invoices</h1>
+<% @invoices.each do |invoice|%>
+  <ul name="invoices">
+    <li><%= invoice.id %></li>
+    <li><%= invoice.customer_id %></li>
+    <li><%= invoice.merchant_id %></li>
+    <li><%= invoice.status %></li>
+    <li><%= invoice.created_at %></li>
+    <li><%= invoice.updated_at %></li>
+  </ul>
+<% end %>
