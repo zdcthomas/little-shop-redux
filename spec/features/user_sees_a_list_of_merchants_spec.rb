@@ -6,4 +6,14 @@ RSpec.describe 'user visits merchant index page' do
 
     expect(page).to have_content(merchant.name)
   end
+
+  it 'should see no merchants when there are none' do
+    merchant = Merchant.create()
+    visit('/merchants')
+
+    expect(page).to have_content('')
+  end
+
+  it 'should go to /edit when edit is clicked' do
+  end 
 end
