@@ -38,10 +38,9 @@ RSpec.describe 'A User' do
       Invoice.create(id: 1, merchant_id: 12335938, customer_id: 1, status: 'pending')
 
       visit '/invoices/1/edit'
-      fill_in 'status', with:'Confirmed'
+      fill_in 'invoice[status]', with:'Confirmed'
       click_button 'submit'
-
-      current_path.should eq.('invoices/1')
+      expect(current_path).to eq('/invoices/1')
       expect(page).to_not have_content('Status: pending')
       expect(page).to have_content('Status: Confirmed')
     end
