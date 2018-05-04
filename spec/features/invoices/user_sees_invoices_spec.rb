@@ -45,4 +45,19 @@ RSpec.describe 'A User' do
       expect(page).to have_content('Status: Confirmed')
     end
   end
+
+  describe 'tries to delete an invoice' do
+    it 'should remove the invoice from the table of invoices' do
+      id = 1
+      merchant_id = 12335938
+      customer_id = 1
+      status = 'pending'
+
+      Invoice.create(id: id, merchant_id: merchant_id, customer_id: customer_id, status: status)
+      visit '/invoices'
+      click_button 'delete_invoice_#{id}'
+
+      expect(page).to not_have_content("Index ##{id}")
+    end
+  end
 end
