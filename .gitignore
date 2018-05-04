@@ -2,3 +2,4 @@ db/csv/*.csv
 Gemfile.lock
 .vscode/
 tmp/
+spec/features/user_sees_a_form_to_edit_merchants.rb
