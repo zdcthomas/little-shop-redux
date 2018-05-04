@@ -28,6 +28,13 @@ class LittleShopApp < Sinatra::Base
     redirect "/invoices/#{params[:id]}"
   end
 
+  delete 'invoices/:id' do |id|
+    Task.destroy(id.to_i)
+    redirect '/invoices'
+  end
+
+
+
   not_found do
     status 404
   end

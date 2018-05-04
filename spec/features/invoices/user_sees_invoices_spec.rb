@@ -53,11 +53,13 @@ RSpec.describe 'A User' do
       customer_id = 1
       status = 'pending'
 
-      Invoice.create(id: id, merchant_id: merchant_id, customer_id: customer_id, status: status)
+      invoice = Invoice.create(id: id, merchant_id: merchant_id, customer_id: customer_id, status: status)
       visit '/invoices'
-      click_button 'delete_invoice_#{id}'
+      click_button "delete_invoice_#{id}"
 
-      expect(page).to not_have_content("Index ##{id}")
+      expect(Invoice.all).to_not include(id:id)
+      expect(Invoice.all).to_not include(id:merchant_id)
+      expect(Invoice.all).to_not include(id:customer_id)
     end
   end
 end
