@@ -5,4 +5,5 @@ class Item < ActiveRecord::Base
   validates :price, presence: true
   validates :img, presence: true
 
+  belongs_to :merchant
 end
