@@ -14,6 +14,7 @@ class LittleShopApp < Sinatra::Base
   end
 
   get '/items/new' do
+    @items = Item.all
     erb :'items/new'
   end
 

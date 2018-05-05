@@ -1,7 +1,3 @@
-<head>
-<link rel="stylesheet" type="text/css" href="Users/jamisonordway/desktop/turing/2module/projects/little-shop-redux/app/css/new_item.css">
-</head>
-
 <form class='new-item' action='/items' method='post'>
   <h1>New Item</h1>
   <p>Title: <input type='text' name='item[title]' placeholder='title'></p>
@@ -11,14 +7,12 @@
   <p><input type='submit' value='Submit'></p>
 
   <p>Merchant:
-    <div class="dropdown">
-  <button class="dropbtn">Merchants</button>
-  <div class="dropdown-content">
-    <a href="#">Link 1</a>
-    <a href="#">Link 2</a>
-    <a href="#">Link 3</a>
-  </div>
-</div>
-</p>
-
+    <select name='merchants'>
+      <% @items.each do |item| %>
+      <option value='merchant'>
+        <%= item.merchant_id %>
+      </option>
+      <% end %>
+    </select>
+  </p>
 </form>
