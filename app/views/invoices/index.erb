@@ -1,12 +1,13 @@
 <h1>Invoices</h1>
 <% @invoices.each do |invoice|%>
   <ul name="invoices">
-    <li><%= invoice.id %></li>
+    <li><h1> Invoice: <%= invoice.id %> </h1></li>
     <li><%= invoice.customer_id %></li>
     <li><%= invoice.merchant_id %></li>
     <li><%= invoice.status %></li>
     <li><%= invoice.created_at %></li>
     <li><%= invoice.updated_at %></li>
+    <a href="/invoices/<%= invoice.id  %>/edit">Edit</a>
     <input type="hidden" name="_method" value="DELETE">
     <input type="submit" id="delete_invoice_<%= invoice.id %>" value="delete ">
   </ul>
