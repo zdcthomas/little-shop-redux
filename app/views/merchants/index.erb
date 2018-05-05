@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<h1>Merchants</h1>
+<h2><a href='/merchants/new'>Add New Merchant</a></h2>
+
+<% @merchants.each do |merchant| %>
+  <h3><a href="/merchants/<%= merchant.id %>"><%= merchant.name %></a></h3>
+  <ul>
+    Created at:<li><%= merchant.created_at %></li>
+    Updated at:<li><%= merchant.updated_at%></li>
+  </ul>
+  <a id="edit" href="/merchants/<%= merchant.id %>/edit">Edit</a>
+  <form action="/merchants/<%= merchant.id %>" method="POST">
+    <input type="hidden" name="_method" VALUE='DELETE'>
+    <input type="submit" value="Delete"/>
+  </form>
+  
+<%end%>
