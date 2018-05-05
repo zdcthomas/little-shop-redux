@@ -7,15 +7,10 @@ RSpec.describe 'Visitors' do
     item1_image = '/images/default-photo.png'
     item1 = Item.create(title: item1_title, description: item1_description, price: item1_price, img: item1_image)
     item1.save
-    visit('/items/1/edit')
+    visit('/items/1')
 
-    fill_in 'item[title]', :with=> 'thing'
-    fill_in 'item[description]', :with=> 'information'
-    fill_in 'item[price]', :with=> 6
-    fill_in 'item[img]', :with=> 'http://www.suttonsilver.co.uk/wp-content/uploads/blog-stock-02.jpg'
-    item1.save
-    click_button('Submit')
-
-    expect(page).to have_content('thing')
-end
+    click_button('delete')
+    visit('/items/1')
+    expect(page).to_not have_content('Sticker')
+  end
 end
