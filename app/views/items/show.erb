@@ -5,5 +5,7 @@
 <p><img src='http://www.suttonsilver.co.uk/wp-content/uploads/blog-stock-02.jpg' alt='item photo'></p>
 <p><a href='/items/<%= @item.id %>/edit'>Edit</a>
 
-<input type="hidden" name="_method" VALUE='DELETE'>
-<input type="submit" value="delete"/>
+  <form action="/items/<%= @item.id %>" method="POST">
+    <input type="hidden" name="_method" VALUE='DELETE'>
+    <input type="submit" value="delete"/>
+  </form>

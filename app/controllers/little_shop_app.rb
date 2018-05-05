@@ -33,6 +33,13 @@ class LittleShopApp < Sinatra::Base
     end
   end
 
+  delete '/items/:id' do |id|
+    #item = Item.find(params[:id])
+    Item.destroy(params[:id])
+
+    redirect '/items'
+  end
+
   get '/items/:id/edit' do
     @item = Item.find(params[:id])
     erb :'items/edit'
@@ -45,8 +52,9 @@ class LittleShopApp < Sinatra::Base
     redirect '/items'
   end
 
-  delete '/items/:id' do |id|
-    Item.destroy(id.to_i)
+  post '/items/' do
+    item = Item.new(params[:item])
+    item.save
     redirect '/items'
   end
 

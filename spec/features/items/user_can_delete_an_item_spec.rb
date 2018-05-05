@@ -10,7 +10,7 @@ RSpec.describe 'Visitors' do
     visit('/items/1')
 
     click_button('delete')
-    visit('/items/1')
+    visit('/items')
     expect(page).to_not have_content('Sticker')
   end
 end

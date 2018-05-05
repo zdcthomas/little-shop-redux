@@ -7,8 +7,10 @@
     <p>Price: $<%= item.price %></p>
     <p><img id="item_photo_<%=item.id%>" src='<%= item.img %>'</p>
 
+  <form action="/items/<%= item.id %>" method="POST">
     <input type="hidden" name="_method" VALUE='DELETE'>
     <input type="submit" value="delete"/>
+  </form>
   <% end %>
 
   <h2><a class='new' href='/items/new'>Add a new item</h2>
