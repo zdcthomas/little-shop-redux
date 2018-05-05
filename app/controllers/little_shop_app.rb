@@ -1,4 +1,8 @@
 class LittleShopApp < Sinatra::Base
+  get ['/merchants', '/merchants/'] do
+    @merchants = Merchant.all
+    erb :'merchants/index'
+  end
 
   get '/' do
     erb :'welcome'
@@ -21,26 +25,60 @@ class LittleShopApp < Sinatra::Base
   end
 
   get '/items/:id' do
-    if Item.exists(params[:id])
-      @item = Item.find(params['id'])
+    if Item.exists?(params[:id])
+      @item = Item.find(params[:id])
        erb :'items/show'
     else
-
-    redirect not_found
+      redirect not_found
     end
   end
 
-
   get '/items/:id/edit' do
-    @item = Item.find(params['id'])
+    @item = Item.find(params[:id])
     erb :'items/edit'
   end
 
-  post '/items/:id/edit' do
-    @item = Item.find(params['id'])
-    item.update(params[:item])
+  put '/items/:id' do
+    @item = Item.find(params[:id])
+    @item.update(params[:item])
 
     redirect '/items'
+  end
+
+  delete '/items/:id' do |id|
+    Item.destroy(id.to_i)
+    redirect '/items'
+  end
+
+  get '/merchants/new' do
+    erb :'merchants/new'
+  end
+
+  get '/merchants/:id/edit' do
+    @merchant = Merchant.find(params[:id])
+    erb :'merchants/edit'
+  end
+
+  get '/merchants/:id' do
+    @merchant = Merchant.find(params[:id])
+    erb :'merchants/show'
+  end
+
+  put '/merchants/:id' do
+    merchant = Merchant.find(params[:id])
+    merchant.update(params[:merchant])
+    redirect '/merchants'
+  end
+
+  post '/merchants/' do
+    merchant = Merchant.new(params[:merchant])
+    merchant.save
+    redirect '/merchants'
+  end
+
+  delete '/merchants/:id' do |id|
+    Merchant.destroy(id.to_i)
+    redirect '/merchants'
   end
 end
 
