@@ -1,4 +1,39 @@
 class LittleShopApp < Sinatra::Base
+  
+  get '/invoices' do
+    @invoices = Invoice.all
+    erb :"invoices/index"
+  end
+
+  get '/invoices/:id' do
+    if Invoice.exists?(params[:id])
+      @invoice = Invoice.find(params[:id])
+      erb :"invoices/show"
+    else
+      redirect not_found
+    end
+  end
+
+  get '/invoices/:id/edit' do
+    if Invoice.exists?(params[:id])
+      @invoice = Invoice.find(params[:id])
+      erb :"invoices/edit"
+    else
+      redirect not_found
+    end
+  end
+
+  put '/invoices/:id' do
+    invoice = Invoice.find(params[:id])
+    invoice.update(params[:invoice])
+    redirect "/invoices/#{params[:id]}"
+  end
+
+  delete 'invoices/:id' do |id|
+    Task.destroy(id.to_i)
+    redirect '/invoices'
+  end
+
   get ['/merchants', '/merchants/'] do
     @merchants = Merchant.all
     erb :'merchants/index'
@@ -89,6 +124,11 @@ class LittleShopApp < Sinatra::Base
     Merchant.destroy(id.to_i)
     redirect '/merchants'
   end
+  
+  not_found do
+    status 404
+  end
+  
 end
 
 #export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES << RUN THIS FOR EVERY NEW TERMINAL SESSION!!

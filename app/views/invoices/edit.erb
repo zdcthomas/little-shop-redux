@@ -1,0 +1,8 @@
+<form action="/invoices/<%= @invoice.id %>" method="post">
+  <p>Invoice: <%=@invoice.id%></p>
+  <input type="hidden" name="_method" value="PUT" />
+  Merchant Id:<input type='integer' name='invoice[merchant_id]' value="<%= @invoice.merchant_id %>" readonly/><br/>
+  Customer Id: <input type='integer' name='invoice[customer_id]' value="<%= @invoice.customer_id %>"/><br/>
+  Status: <textarea name='invoice[status]'><%= @invoice.status %></textarea><br/>
+  <input id="submit" type='submit'/>
+</form>
