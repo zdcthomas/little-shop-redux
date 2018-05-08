@@ -1,0 +1,58 @@
+banner {
+  grid-area: banner;
+  background-color: grey;
+  border: 5px solid brown;
+}
+
+banner #dashboard {
+  float: left;
+  margin: 0px 0px 0px 5px;
+  width: 70px;
+  height: 20px;
+  padding: 0px 5px 5px 5px;
+}
+
+banner .center {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+}
+
+.banner_buttons {
+  display: flex;
+  flex-direction: row;
+}
+
+banner .center button {
+  text-decoration: none;
+  border: 3px solid brown;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+#edit_button{
+  text-decoration: none;
+  border: 5px solid brown;
+  background: orange;
+  color: black;
+  width: 50px;
+  height: 30px;
+}
+
+.delete_button{
+  border: 5px solid brown;
+  background: red;
+  text-align: center;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  height: 30px;
+
+}
+
+#Delete{
+  text-align: center;
+}
+
+#Edit {
+
+}
