@@ -1,11 +1,29 @@
+<head>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+</head>
 
-<h1><%= @item.title %></h1>
-<h2>Description: <%= @item.description %></h2>
-<h2>Price: $<%= @item.price %></h2>
-<p><img src='http://www.suttonsilver.co.uk/wp-content/uploads/blog-stock-02.jpg' alt='item photo'></p>
-<p><a href='/items/<%= @item.id %>/edit'>Edit</a>
+<body>
+  <header>
+    <span>LittleShop</span>
+      <nav>
+        <ul>
+          <li><a href="/merchants/index.erb">Merchants</a></li>
+          <li><a href="/items/index.erb">Items</a></li>
+          <li><a href="/invoices/index.erb">Invoices</a></li>
+        </ul>
+      </nav>
+    </span>
+  <header>
+    
+  <h1><%= @item.title %></h1>
+  <h2>Description: <%= @item.description %></h2>
+  <h2>Price: $<%= @item.price %></h2>
+  <p><img src='http://www.suttonsilver.co.uk/wp-content/uploads/blog-stock-02.jpg' alt='item photo'></p>
+  <p><a href='/items/<%= @item.id %>/edit'>Edit</a>
 
-  <form action="/items/<%= @item.id %>" method="POST">
-    <input type="hidden" name="_method" VALUE='DELETE'>
-    <input type="submit" value="delete"/>
-  </form>
+    <form action="/items/<%= @item.id %>" method="POST">
+      <input type="hidden" name="_method" VALUE='DELETE'>
+      <input type="submit" value="delete"/>
+    </form>
+</body>
