@@ -25,7 +25,7 @@ RSpec.describe 'Visitors' do
     within 'form' do
       fill_in 'title', :with=> 'thing'
       fill_in 'description', :with=> 'information'
-      fill_in 'price', :with=> 6
+      fill_in 'unit_price', :with=> 6
       fill_in 'image', :with=> 'http://www.suttonsilver.co.uk/wp-content/uploads/blog-stock-02.jpg'
     end
     click_button('Submit')

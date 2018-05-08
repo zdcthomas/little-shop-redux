@@ -11,11 +11,11 @@ RSpec.describe 'Visitors' do
 
     fill_in 'item[title]', :with=> 'thing'
     fill_in 'item[description]', :with=> 'information'
-    fill_in 'item[price]', :with=> 6
+    fill_in 'item[unit_price]', :with=> 6
     fill_in 'item[img]', :with=> 'http://www.suttonsilver.co.uk/wp-content/uploads/blog-stock-02.jpg'
     item1.save
     click_button('Submit')
 
     expect(page).to have_content('thing')
-end
+  end
 end
