@@ -1,4 +1,4 @@
-RSpec.describe InvocieItem do 
+RSpec.describe InvoiceItem do 
   describe 'An Instance of InvoiceItem' do
     it 'Exists' do
       inv_item = InvoiceItem.new(id: 1, item_id: 20, invoice_id: 25, quantity: 5, unit_price: 13567)
