@@ -20,7 +20,7 @@ banner .center {
   margin: 10px;
 }
 
-.content {
+content {
   display: flex;
   flex-direction: row;
   justify-content: center;
