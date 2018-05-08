@@ -1,0 +1,61 @@
+banner {
+  grid-area: banner;
+  background-color: grey;
+  border: 5px solid brown;
+}
+
+banner #dashboard {
+  float: left;
+  margin: 0px 0px 0px 5px;
+  width: 70px;
+  height: 20px;
+  padding: 0px 5px 5px 5px;
+}
+
+banner .center {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  border: 1px black;
+}
+
+content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#top_merchants {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border: 3px solid brown;
+  margin: 10px;
+}
+
+#top_merchants > div {
+  padding: 50px;
+}
+
+.merchant_cards {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+.merchant_card {
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  border: 3px solid brown;
+}
+
+

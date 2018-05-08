@@ -96,6 +96,7 @@ class LittleShopApp < Sinatra::Base
   end
 
   get '/merchants-dashboard' do
+    @merchants = Merchant.all
     @merchants_with_info = Merchant.info
     @highest_item_count = Merchant.most_items
     @highest_priced_item = Merchant.highest_priced_item
