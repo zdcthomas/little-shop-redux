@@ -4,11 +4,11 @@ class Merchant < ActiveRecord::Base
   has_many :items
 
   def self.most_items
-    Merchant.info.order('item_count DESC').first.id
+    Merchant.info.order('item_count DESC').first
   end
 
   def self.highest_priced_item
-    Item.order('unit_price DESC').first.merchant.id
+    Item.order('unit_price DESC').first.merchant
   end
 
   def self.info

@@ -4,6 +4,8 @@
     <meta charset="utf-8" />
     <title>Page Title</title>
     <link rel="stylesheet" type="text/css" media="screen" href="./stylesheets/css/master.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="./stylesheets/css/merchants/merchants-dashboard.css" />
+
 </head>
 <body>
 
@@ -18,7 +20,26 @@
     </nav>
   </header>
 
-    <h1>Merchants Dashboard</h1>
+  <banner>
+    <h1 class="center">Merchants Dashboard</h1>
+  </banner>
+
+  <content>
+    <div id="top_merchants">
+      <div id="most_items">
+        <h3>Merchants With The Most Items:</h3>
+        <a href="/merchants/<%=@highest_item_count.id%>">
+          <%=@highest_item_count.name%>
+        </a>
+      </div>
+      <div id="highest_price">
+        <h3>Merchants With The Highest Price Item:</h3>
+        <a href="/merchants/<%=@highest_priced_item.id%>">
+          <%=@highest_priced_item.name%>
+        </a>
+      </div>
+    </div>
+  </content>
 
 </body>
 </html>
