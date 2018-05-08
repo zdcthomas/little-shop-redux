@@ -112,12 +112,13 @@ class LittleShopApp < Sinatra::Base
 
   get '/merchants/:id' do
     @merchant = Merchant.find(params[:id])
+    @items = Item.group(params[:merchant_id])
     erb :'merchants/show'
   end
 
   put '/merchants/:id' do
-    merchant = Merchant.find(params[:id])
-    merchant.update(params[:merchant])
+    @merchant = Merchant.find(params[:id])
+    @merchant.update(params[:merchant])
     redirect '/merchants'
   end
 
@@ -130,7 +131,7 @@ class LittleShopApp < Sinatra::Base
 
   delete '/merchants/:id' do |id|
     Merchant.destroy(id.to_i)
-    
+
     redirect '/merchants'
   end
 
