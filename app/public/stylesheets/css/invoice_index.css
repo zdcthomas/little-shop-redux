@@ -45,3 +45,9 @@ h1 {
 body {
   background-color: powderblue;
 }
+
+.grid-container {
+  padding: 50px;
+  display: grid;
+  grid-gap: 500px;
+}

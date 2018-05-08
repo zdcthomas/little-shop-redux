@@ -1,16 +1,18 @@
-<h1>Invoices</h1>
-<a href='/views/merchants'>Merchants</a> <a href='/views/items'>Items</a> <a href='views/invoices'>Invoices</a>
-<a href='views/dashboard'>Dashboard</a>
 <head>
-<link rel="stylesheet" type='text/css' href="/invoice_index.css"/>
+  <link rel="stylesheet" type='text/css' href="/stylesheets/css/invoice_index.css">
 </head>
+
+<h1>Invoices</h1>
+
+<div class='grid-container'>
 <body>
-<% @invoices.each do |invoice|%>
-  <ul name="invoices">
-    <li><h1><%= invoice.id %> </h1></li>
-    <a href="/invoices/<%= invoice.id  %>/edit">Edit</a>
-    <input type="hidden" name="_method" value="DELETE">
-    <input type="submit" id="delete_invoice_<%= invoice.id %>" value="delete ">
-  </ul>
-<% end %>
-</body>
+  <% @invoices.each do |invoice|%>
+    <div class="grid-item">
+      <h1><%= invoice.id %> </h1>
+      <a href="/invoices/<%= invoice.id  %>/edit">Edit</a>
+      <input type="hidden" name="_method" value="DELETE">
+      <input type="submit" id="delete_invoice_<%= invoice.id %>" value="delete ">
+    </div>
+  <% end %>
+  </body>
+</div>
