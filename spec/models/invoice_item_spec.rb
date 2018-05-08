@@ -9,25 +9,25 @@ RSpec.describe InvoiceItem do
     it 'Has an item_id' do
       inv_item = InvoiceItem.create(id: 1, item_id: 20, invoice_id: 25, quantity: 5, unit_price: 13567)
 
-      expect(inv_item.item_id).to eq.(20)
+      expect(inv_item.item_id).to eq(20)
     end
 
     it 'Has an invoice_id' do
       inv_item = InvoiceItem.create(id: 1, item_id: 20, invoice_id: 25, quantity: 5, unit_price: 13567)
 
-      expect(inv_item.invoice_id).to eq.(25)
+      expect(inv_item.invoice_id).to eq(25)
     end
 
     it 'Has a quantity' do
       inv_item = InvoiceItem.create(id: 1, item_id: 20, invoice_id: 25, quantity: 5, unit_price: 13567)
 
-      expect(inv_item.quantity).to eq.(5)
+      expect(inv_item.quantity).to eq(5)
     end
 
     it 'Has a unit_price' do
       inv_item = InvoiceItem.create(id: 1, item_id: 20, invoice_id: 25, quantity: 5, unit_price: 13567)
 
-      expect(inv_item.unit_price).to eq.(13567)
+      expect(inv_item.unit_price).to eq(13567)
     end
   end
 
