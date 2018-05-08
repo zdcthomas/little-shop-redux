@@ -1,4 +1,8 @@
 <h1>Invoices</h1>
+<head>
+<link rel="stylesheet" type='text/css' href="/invoice_index.css"/>
+</head>
+<body>
 <% @invoices.each do |invoice|%>
   <ul name="invoices">
     <li><h1> Invoice: <%= invoice.id %> </h1></li>
@@ -12,3 +16,4 @@
     <input type="submit" id="delete_invoice_<%= invoice.id %>" value="delete ">
   </ul>
 <% end %>
+</body>

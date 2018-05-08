@@ -4,15 +4,15 @@
   <p>Description: <input type='text' name='item[description]' placeholder='description'></p>
   <p>Price: <input type ='text' name='item[price]' placeholder='price'></p>
   <p>Image: <input type='text' name='item[img]' placeholder='image'></p>
-  <p><input type='submit' value='Submit'></p>
-
   <p>Merchant:
     <select name='merchants'>
-      <% @items.each do |item| %>
+      <% @merchants.each do |merchant| %>
       <option value='merchant'>
-        <%= item.merchant_id %>
+        <%= merchant.name %>
       </option>
       <% end %>
     </select>
   </p>
+  <p><input type='submit' value='Submit'></p>
+
 </form>
