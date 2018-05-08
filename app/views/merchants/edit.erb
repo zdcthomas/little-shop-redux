@@ -1,7 +1,13 @@
-<!DOCTYPE html>
-<form action="/merchants/<%= @merchant.id %>" method="post">
-  <p>Edit</p>
-  <input type="hidden" name="_method" value="PUT" />
-  <input type='text' name='merchant[name]'><%= @merchant.name %><br/>
-  <input type='submit'/>
-</form>
+<head>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" type="text/css" media="screen" href="./stylesheets/css/master.css" />
+</head>
+
+<body>
+  <form action="/merchants/<%= @merchant.id %>" method="post">
+    <p>Edit</p>
+    <input type="hidden" name="_method" value="PUT" />
+    <input type='text' name='merchant[name]'><%= @merchant.name %><br/>
+    <input type='submit'/>
+  </form>
+</body>
