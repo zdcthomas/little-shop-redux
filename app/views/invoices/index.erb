@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8" />
-  <title>Merchants Index</title>
+  <title>Invoices Index</title>
   <link rel="stylesheet" type="text/css" href="/stylesheets/css/master.css" />
   <link rel="stylesheet" type="text/css" href="/stylesheets/css/merchants/merchant_index.css" />
 </head>
@@ -24,20 +24,18 @@
         <a id="dashboard" href="/merchants-dashboard"><p>Dashboard</p></a>
         <span class="center">
           <h1>Invoices</h1>
-    
         </span>
     </banner>
 
 
-<div class='grid-container'>
+
 <body>
   <% @invoices.each do |invoice|%>
-    <div class="grid-item">
+    <div class="list">
       <h1><%= invoice.id %> </h1>
-      <a href="/invoices/<%= invoice.id  %>/edit">Edit</a>
+      <a class='edit_button' href="/invoices/<%= invoice.id  %>/edit">Edit</a>
       <input type="hidden" name="_method" value="DELETE">
-      <input type="submit" id="delete_invoice_<%= invoice.id %>" value="delete ">
+      <input class='delete_button' type="submit" id="delete_invoice_<%= invoice.id %>" value="delete ">
     </div>
   <% end %>
   </body>
-</div>
