@@ -1,18 +1,36 @@
-<form class='new-item' action='/items' method='post'>
-  <h1>New Item</h1>
-  <p>Title: <input type='text' name='item[title]' placeholder='title'></p>
-  <p>Description: <input type='text' name='item[description]' placeholder='description'></p>
-  <p>Price: <input type ='text' name='item[price]' placeholder='price'></p>
-  <p>Image: <input type='text' name='item[img]' placeholder='image'></p>
-  <p><input type='submit' value='Submit'></p>
+<head>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" type="text/css" media="screen" href="./stylesheets/css/main.css" />
+</head>
 
-  <p>Merchant:
-    <select name='merchants'>
-      <% @items.each do |item| %>
-      <option value='merchant'>
-        <%= item.merchant_id %>
-      </option>
-      <% end %>
-    </select>
-  </p>
-</form>
+<body>
+  <header>
+    <span>LittleShop</span>
+      <nav>
+        <ul>
+          <li><a href="/merchants/index.erb">Merchants</a></li>
+          <li><a href="/items/index.erb">Items</a></li>
+          <li><a href="/invoices/index.erb">Invoices</a></li>
+        </ul>
+      </nav>
+    </span>
+  <header>
+  <form class='new-item' action='/items' method='post'>
+    <h1>New Item</h1>
+    <p>Title: <input type='text' name='item[title]' placeholder='title'></p>
+    <p>Description: <input type='text' name='item[description]' placeholder='description'></p>
+    <p>Unit_Price: <input type ='text' name='item[unit_price]' placeholder='unit_price'></p>
+    <p>Image: <input type='text' name='item[img]' placeholder='image'></p>
+    <p>Merchant:
+      <select name='merchants'>
+        <% @merchants.each do |merchant| %>
+        <option value='merchant'>
+          <%= merchant.name %>
+        </option>
+        <% end %>
+      </select>
+    </p>
+    <p><input type='submit' value='Submit'></p>
+
+  </form>
+</body>
