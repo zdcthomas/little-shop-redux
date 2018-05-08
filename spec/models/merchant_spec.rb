@@ -36,7 +36,7 @@ RSpec.describe Merchant do
         merchant_2.items.create(name: "fool", description: "bar", unit_price: 40, img: "jkf")
         merchant_2.items.create(name: "biz", description: "bar", unit_price: 50, img: "jkf")
       
-        expect(Merchant.most_items).to eq(1)
+        expect(Merchant.most_items.id).to eq(1)
       end
     end
     describe 'highest priced item' do
@@ -50,7 +50,7 @@ RSpec.describe Merchant do
         merchant_2.items.create(name: "fool", description: "bar", unit_price: 40, img: "jkf")
         merchant_2.items.create(name: "biz", description: "bar", unit_price: 50, img: "jkf")
 
-        expect(Merchant.highest_priced_item).to eq(2)
+        expect(Merchant.highest_priced_item.id).to eq(2)
       end
     end
   end
