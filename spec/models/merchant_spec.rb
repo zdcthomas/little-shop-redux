@@ -26,28 +26,32 @@ RSpec.describe Merchant do
       end
     end
     describe 'most_items' do
-      merchant_1 = Merchant.create(name: "hello")
-      merchant_2 = Merchant.create(name: "jabba")
-      merchant_1.items.create(name: "foo", description: "bar", unit_price: 15, img: "jkf")
-      merchant_1.items.create(name: "baz", description: "bar", unit_price: 15, img: "jkf")
-      merchant_1.items.create(name: "cah", description: "bar", unit_price: 20, img: "jkf")
-      merchant_1.items.create(name: "asdf", description: "bar", unit_price: 20, img: "jkf")
-      merchant_2.items.create(name: "fool", description: "bar", unit_price: 40, img: "jkf")
-      merchant_2.items.create(name: "biz", description: "bar", unit_price: 50, img: "jkf")
+      it 'should return the merchant with the most items' do
+        merchant_1 = Merchant.create(name: "hello")
+        merchant_2 = Merchant.create(name: "jabba")
+        merchant_1.items.create(name: "foo", description: "bar", unit_price: 15, img: "jkf")
+        merchant_1.items.create(name: "baz", description: "bar", unit_price: 15, img: "jkf")
+        merchant_1.items.create(name: "cah", description: "bar", unit_price: 20, img: "jkf")
+        merchant_1.items.create(name: "asdf", description: "bar", unit_price: 20, img: "jkf")
+        merchant_2.items.create(name: "fool", description: "bar", unit_price: 40, img: "jkf")
+        merchant_2.items.create(name: "biz", description: "bar", unit_price: 50, img: "jkf")
       
-      expect(Merchant.most_items).to eq(1)
+        expect(Merchant.most_items).to eq(1)
+      end
     end
     describe 'highest priced item' do
-      merchant_1 = Merchant.create(name: "hello")
-      merchant_2 = Merchant.create(name: "jabba")
-      merchant_1.items.create(name: "foo", description: "bar", unit_price: 15, img: "jkf")
-      merchant_1.items.create(name: "baz", description: "bar", unit_price: 15, img: "jkf")
-      merchant_1.items.create(name: "cah", description: "bar", unit_price: 20, img: "jkf")
-      merchant_1.items.create(name: "asdf", description: "bar", unit_price: 20, img: "jkf")
-      merchant_2.items.create(name: "fool", description: "bar", unit_price: 40, img: "jkf")
-      merchant_2.items.create(name: "biz", description: "bar", unit_price: 50, img: "jkf")
+      it 'should return the merchant with the mighest priced item' do
+        merchant_1 = Merchant.create(name: "hello")
+        merchant_2 = Merchant.create(name: "jabba")
+        merchant_1.items.create(name: "foo", description: "bar", unit_price: 15, img: "jkf")
+        merchant_1.items.create(name: "baz", description: "bar", unit_price: 15, img: "jkf")
+        merchant_1.items.create(name: "cah", description: "bar", unit_price: 20, img: "jkf")
+        merchant_1.items.create(name: "asdf", description: "bar", unit_price: 20, img: "jkf")
+        merchant_2.items.create(name: "fool", description: "bar", unit_price: 40, img: "jkf")
+        merchant_2.items.create(name: "biz", description: "bar", unit_price: 50, img: "jkf")
 
-      expect(Merchant.highest_priced_item).to eq(2)
+        expect(Merchant.highest_priced_item).to eq(2)
+      end
     end
   end
 end

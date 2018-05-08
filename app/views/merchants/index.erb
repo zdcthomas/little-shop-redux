@@ -19,7 +19,7 @@
   </nav>
 </header>
 
-  <div class="content">
+  
     <banner>
         <a id="dashboard" href="/merchants-dashboard"><p>Dashboard</p></a>
         <span class="center">
@@ -31,37 +31,37 @@
           </button>
         </span>
     </banner>
-  <div>
 
-  <table>
-    <% @merchants.each do |merchant| %>
-      <tr>
-        <td>
-          <a class="title" href="/merchants/<%= merchant.id %>">
-            <%= merchant.name %>
-          </a>
-          <div class="table_buttons">
-            <ul>
-              <li>
-                <a href="/merchants/<%= merchant.id %>/edit">
-                  <button class="edit_button">
-                    Edit
-                  </button>
-                </a>
-              </li>
-              <li>
-                <form  action="/merchants/<%= merchant.id %>" method="POST">
-                  <input type="hidden" name="_method" VALUE='DELETE'>
-                  <input class="delete_button" type="submit" value="Delete"/>
-                </form>
-              </li>
-            </ul>
-          </div>
-        </td>
-      </tr>
-    <%end%>
-  </table>
-  
+  <content>
+    <table>
+      <% @merchants.each do |merchant| %>
+        <tr>
+          <td>
+            <a class="title" href="/merchants/<%= merchant.id %>">
+              <%= merchant.name %>
+            </a>
+            <div class="table_buttons">
+              <ul>
+                <li>
+                  <a href="/merchants/<%= merchant.id %>/edit">
+                    <button class="edit_button">
+                      Edit
+                    </button>
+                  </a>
+                </li>
+                <li>
+                  <form  action="/merchants/<%= merchant.id %>" method="POST">
+                    <input type="hidden" name="_method" VALUE='DELETE'>
+                    <input class="delete_button" type="submit" value="Delete"/>
+                  </form>
+                </li>
+              </ul>
+            </div>
+          </td>
+        </tr>
+      <%end%>
+    </table>
+  </content>
 
 
 </body>
