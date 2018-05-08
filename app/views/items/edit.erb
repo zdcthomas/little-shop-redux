@@ -15,12 +15,12 @@
       </nav>
     </span>
   <header>
-  <h1>Edit <%= @item.title %></h1>
+  <h1>Edit <%= @item.name %></h1>
 
 
   <form class='edit-item' action='/items/<%= @item.id %>/edit' method='post'>
       <input type='hidden' name='_method' value='PUT'>
-        <p>Title: <input type='text' name='item[title]' value='<%= @item.title %>'></p>
+        <p>Name: <input type='text' name='item[name]' value='<%= @item.name %>'></p>
         <p>Description: <input type='text' name='item[description]' value='<%= @item.description %>'></p>
         <p>Price: <input type ='text' name='item[unit_price]' value='<%= @item.unit_price %>'></p>
         <p>Link to Image: <input type='text' name='item[img]' value='<%= @item.img %>'></p>

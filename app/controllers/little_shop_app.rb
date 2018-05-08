@@ -111,7 +111,7 @@ class LittleShopApp < Sinatra::Base
 
   get '/merchants/:id' do
     @merchant = Merchant.find(params[:id])
-    @items = Item.group(params[:merchant_id])
+    @items = @merchant.items
     erb :'merchants/show'
   end
 
