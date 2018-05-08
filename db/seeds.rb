@@ -5,26 +5,15 @@ require './app/models/invoice.rb'
 require 'CSV'
 
 CSV.foreach('./data/items.csv', headers: true, header_converters: :symbol) do |i|
-<<<<<<< HEAD
-      Item.create(id: i[:id],
-                  title: i[:title],
-                  description: i[:description],
-                  price: i[:unit_price],
-                  img: i['https://i.imgur.com/47sZdlE.jpg'],
-                  merchant_id: i[:merchant_id],
-                  created_at: i[:created_at],
-                  updated_at: i[:updated_at])
-=======
   Item.create(id: i[:id],
               title: i[:title],
               description: i[:description],
-              unit_price: i[:price],
+              unit_price: i[:unit_price],
               img: i['https://slack-imgs.com/?c=1&url=https%3A%2F%2Fassets3.thrillist.com%2Fv1%2Fimage%2F1299823%2Fsize%2Ftl-horizontal_main.jpg'],
               merchant_id: i[:merchant_id],
               created_at: i[:created_at],
               updated_at: i[:updated_at]
               )
->>>>>>> master
 end
 
 CSV.foreach('./data/merchants.csv', headers: true, header_converters: :symbol) do |m|
