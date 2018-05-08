@@ -18,13 +18,17 @@
   </nav>
 </header>
 
-<section class="hero">
-    <a href="#"><p>Dashboard</p></a>
-    <div class="hero-center">
+<banner>
+    <a id="dashboard" href="/merchants-dashboard"><p>Dashboard</p></a>
+    <span class="center">
       <h1>Merchants</h1>
-      <button type="button"><a href='/merchants/new'>Create a New Merchant</a></button>
-    </div>
-</section>
+      <button>
+        <a href='/merchants/new'>
+          Create a New Merchant
+        </a>
+      </button>
+    </span>
+</banner>
 
 <table style="width:100%">
 <% @merchants.each do |merchant| %>
