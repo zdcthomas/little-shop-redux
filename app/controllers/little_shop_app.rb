@@ -124,11 +124,13 @@ class LittleShopApp < Sinatra::Base
   post '/merchants/' do
     merchant = Merchant.new(params[:merchant])
     merchant.save
+
     redirect '/merchants'
   end
 
   delete '/merchants/:id' do |id|
     Merchant.destroy(id.to_i)
+    
     redirect '/merchants'
   end
 

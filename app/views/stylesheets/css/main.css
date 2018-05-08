@@ -1,0 +1,55 @@
+body {
+    display: grid;
+    grid-template-areas: "header"
+                         "hero"
+                         "tables"
+                         "footer"
+}
+
+header {
+    grid-area: header;
+    background-color: lightcyan;
+}
+
+header span {
+    float: left;
+    padding-top: 21px;
+}
+
+nav ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+nav li {
+    display: block;
+    padding: 5px;
+}
+
+.hero {
+    grid-area: hero;
+    background-color: gray;
+    width: 100%;
+}
+
+.hero-center {
+    text-align: center;
+}
+
+.merchants {
+    text-align: center;
+}
+
+
+footer {
+    grid-area: footer;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    background-color: gray;
+    width: 100%;
+    height: 5%;
+    /* grid-row-start: 4; */
+    /* grid-row-end: 5; */
+}

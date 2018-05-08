@@ -5,21 +5,30 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Merchants</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="/views/stylesheets/css/main.css" />
 </head>
 
 <body>
-  <header>
-    <span>LittleShop</span>
-    <nav>
-      <ul>
-        <li><a href="/merchants/index.erb">Merchants</a></li>
-        <li><a href="/items/index.erb">Items</a></li>
-        <li><a href="/invoices/index.erb">Invoices</a></li>
-      </ul>
-    </nav>
-  </header>
+<header>
+  <span>LittleShop</span>
+  <nav>
+    <ul>
+      <li><a href="/merchants/index.erb">Merchants</a></li>
+      <li><a href="/items/index.erb">Items</a></li>
+      <li><a href="/invoices/index.erb">Invoices</a></li>
+    </ul>
+  </nav>
+</header>
 
+<section class="hero">
+    <a href="#"><p>Dashboard</p></a>
+    <div class="hero-center">
+      <h1>Merchants</h1>
+      <button type="button">Create a New Merchant</button>
+    </div>
+</section>
+
+<section class="merchants">
 <h1>Merchants</h1>
 <h2><a href='/merchants/new'>Add New Merchant</a></h2>
 
@@ -36,6 +45,11 @@
     </td>
   </tr>
 <%end%>
+</section>
+
+<footer></footer>
+
+</body>
 </table>
 
 </html>
