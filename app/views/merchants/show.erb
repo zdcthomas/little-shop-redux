@@ -37,12 +37,20 @@
         </div>
       </div>
     </banner>
-    <% @items.each do |item| %>
-      <div>
-        <img src="<%=@item.img%>">
-        <h1><%= item.name %></h1>
-        <div> <%= item.unit_price%>
-      </div>
-    <%end%>
+    <content>
+      <ul>
+        <% @items.each do |item| %>
+          <li class="item_display" >
+            <img src="<%=item.img%>">
+            <a href='/items/<%=item.id%>'>
+              <%= item.name %>
+            </a>
+            </br>
+            <%= item.unit_price%>
+          </li>
+        <%end%>
+      </ul>
+    </content>
+
   </body>
 </html>
