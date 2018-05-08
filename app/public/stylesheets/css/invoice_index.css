@@ -39,11 +39,11 @@ footer {
 
 h1 {
   font-size: 50px;
-  color: red;
+  color: black;
 }
 
 body {
-  background-color: powderblue;
+  background-color: #a4c1b7;
 }
 
 .grid-container {
