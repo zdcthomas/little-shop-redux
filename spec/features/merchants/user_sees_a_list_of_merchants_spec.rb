@@ -18,7 +18,7 @@ RSpec.describe 'user visits merchant index page' do
     Merchant.create(name: 'Test Merch')
 
     visit('/merchants')
-    click_on('Edit')
+    click_on('edit_button_1')
 
     expect(current_path).to eq('/merchants/1/edit')
   end

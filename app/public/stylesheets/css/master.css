@@ -8,8 +8,9 @@ body {
 
 header {
   grid-area: header;
-  background-color: lightcyan;
+  background-color: lightslategrey;
 }
+
 
 header span {
   float: left;

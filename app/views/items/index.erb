@@ -8,9 +8,9 @@
     <span>LittleShop</span>
       <nav>
         <ul>
-          <li><a href="/merchants/index.erb">Merchants</a></li>
-          <li><a href="/items/index.erb">Items</a></li>
-          <li><a href="/invoices/index.erb">Invoices</a></li>
+          <li><a href="/merchants">Merchants</a></li>
+          <li><a href="/items">Items</a></li>
+          <li><a href="/invoices">Invoices</a></li>
         </ul>
       </nav>
     </span>
@@ -20,7 +20,7 @@
 
 <div id="items">
   <% @items.each do |item| %>
-    <h3><a href='/items/<%= item.id %>'><%= item.title %></a> </h3>
+    <h3><a href='/items/<%= item.id %>'><%= item.name %></a> </h3>
     <p>Description: <%= item.description %></p>
     <p>Price: $<%= item.unit_price %></p>
     <p><img id="item_photo_<%=item.id%>" src='<%= item.img %>'</p>

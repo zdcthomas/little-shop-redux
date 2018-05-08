@@ -4,15 +4,15 @@ require './app/models/merchant.rb'
 require './app/models/invoice.rb'
 require 'CSV'
 
-CSV.foreach('./data/items.csv', headers: true, header_converters: :symbol) do |i|
-  Item.create(id: i[:id],
-              title: i[:title],
-              description: i[:description],
-              unit_price: i[:unit_price],
-              img: i['https://slack-imgs.com/?c=1&url=https%3A%2F%2Fassets3.thrillist.com%2Fv1%2Fimage%2F1299823%2Fsize%2Ftl-horizontal_main.jpg'],
-              merchant_id: i[:merchant_id],
-              created_at: i[:created_at],
-              updated_at: i[:updated_at]
+CSV.foreach('./data/items.csv', headers: true, header_converters: :symbol) do |item|
+  Item.create(id: item[:id],
+              name: item[:name],
+              description: item[:description],
+              unit_price: item[:unit_price],
+              merchant_id: item[:merchant_id],
+              img: 'https://assets3.thrillist.com/v1/image/1299823/size/tl-horizontal_main.jpg',
+              created_at: item[:created_at],
+              updated_at: item[:updated_at]
               )
 end
 

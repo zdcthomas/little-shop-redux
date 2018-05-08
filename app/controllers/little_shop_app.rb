@@ -95,6 +95,14 @@ class LittleShopApp < Sinatra::Base
     redirect '/items'
   end
 
+  get '/merchants-dashboard' do
+    @merchants = Merchant.all
+    @merchants_with_info = Merchant.info
+    @highest_item_count = Merchant.most_items
+    @highest_priced_item = Merchant.highest_priced_item
+    erb :"merchants/merchants-dashboard"
+  end
+
   get '/merchants' do
     @merchants = Merchant.all
     erb :"merchants/index"
@@ -111,7 +119,7 @@ class LittleShopApp < Sinatra::Base
 
   get '/merchants/:id' do
     @merchant = Merchant.find(params[:id])
-    @items = Item.group(params[:merchant_id])
+    @items = @merchant.items
     erb :'merchants/show'
   end
 

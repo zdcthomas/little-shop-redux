@@ -1,11 +1,10 @@
-<!DOCTYPE <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Merchants</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" href="/css/main.css" />
+  <title>Merchants Index</title>
+  <link rel="stylesheet" type="text/css" href="/stylesheets/css/master.css" />
+  <link rel="stylesheet" type="text/css" href="/stylesheets/css/merchants/merchant_index.css" />
 </head>
 
 <body>
@@ -20,32 +19,51 @@
   </nav>
 </header>
 
-<section class="hero">
-    <a href="#"><p>Dashboard</p></a>
-    <div class="hero-center">
-      <h1>Merchants</h1>
-      <button type="button"><a href='/merchants/new'>Create a New Merchant</a></button>
-    </div>
-</section>
+  
+    <banner>
+        <a id="dashboard" href="/merchants-dashboard"><p>Dashboard</p></a>
+        <span class="center">
+          <h1>Merchants</h1>
+          <button>
+            <a id="new_merch" href='/merchants/new'>
+              Create a New Merchant
+            </a>
+          </button>
+        </span>
+    </banner>
 
-<table style="width:100%">
-<% @merchants.each do |merchant| %>
-  <tr>
-    <td><a href="/merchants/<%= merchant.id %>"><%= merchant.name %></a></td>
+  <content>
+    <table>
+      <% @merchants.each do |merchant| %>
+        <tr>
+          <td>
+            <a class="title" href="/merchants/<%= merchant.id %>">
+              <%= merchant.name %>
+            </a>
+            <div class="table_buttons">
+              <ul>
+                <li>
+                  <a href="/merchants/<%= merchant.id %>/edit">
+                    <button class="edit_button">
+                      Edit
+                    </button>
+                  </a>
+                </li>
+                <li>
+                  <form  action="/merchants/<%= merchant.id %>" method="POST">
+                    <input type="hidden" name="_method" VALUE='DELETE'>
+                    <input class="delete_button" type="submit" value="Delete"/>
+                  </form>
+                </li>
+              </ul>
+            </div>
+          </td>
+        </tr>
+      <%end%>
+    </table>
+  </content>
 
-    <td><button><a id="edit" href="/merchants/<%= merchant.id %>/edit">Edit</a></button></td>
-    <td><form action="/merchants/<%= merchant.id %>" method="POST">
-      <input type="hidden" name="_method" VALUE='DELETE'>
-      <input type="button" value="Delete"/>
-      </form>
-    </td>
-  </tr>
-<%end%>
-</section>
-
-<footer></footer>
 
 </body>
-</table>
 
 </html>
