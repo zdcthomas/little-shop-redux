@@ -19,17 +19,19 @@
   </nav>
 </header>
 
-<banner>
-    <a id="dashboard" href="/merchants-dashboard"><p>Dashboard</p></a>
-    <span class="center">
-      <h1>Merchants</h1>
-      <button>
-        <a id="new_merch" href='/merchants/new'>
-          Create a New Merchant
-        </a>
-      </button>
-    </span>
-</banner>
+  <div class="content">
+    <banner>
+        <a id="dashboard" href="/merchants-dashboard"><p>Dashboard</p></a>
+        <span class="center">
+          <h1>Merchants</h1>
+          <button>
+            <a id="new_merch" href='/merchants/new'>
+              Create a New Merchant
+            </a>
+          </button>
+        </span>
+    </banner>
+  <div>
 
   <table>
     <% @merchants.each do |merchant| %>

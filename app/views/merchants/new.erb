@@ -1,11 +1,34 @@
 <head>
   <meta charset="utf-8" />
-  <link rel="stylesheet" type="text/css" media="screen" href="./stylesheets/css/master.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="/stylesheets/css/master.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="/stylesheets/css/merchants/merchant-new.css" />
+
 </head>
 
-<form action="/merchants/" method="post">
-    <p>Create New Merchant</p>
-    Name:<input type='text' name='merchant[name]'/><br/>
-    <input type='submit'/>
-    <button><a href='/merchants'>Cancel</a></button>
-</form>
+<body>
+  <header>
+    <span>LittleShop</span>
+    <nav>
+      <ul>
+        <li><a href="/merchants">Merchants</a></li>
+        <li><a href="/items">Items</a></li>
+        <li><a href="/invoices">Invoices</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <banner>
+    <div class="center">
+      Create New Merchant
+    </div>
+  </banner>
+
+  <div class="content">
+    <form action="/merchants/" method="post">
+      Name<input type='text' name='merchant[name]'/><br/>
+          <button><a href='/merchants'>Cancel</a></button>
+          <input type='submit'/>
+    </form>
+  </div>
+
+</body>
