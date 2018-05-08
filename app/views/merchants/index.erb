@@ -1,17 +1,41 @@
-<!DOCTYPE html>
+<!DOCTYPE <!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Merchants</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+</head>
+
+<body>
+  <header>
+    <span>LittleShop</span>
+    <nav>
+      <ul>
+        <li><a href="/merchants/index.erb">Merchants</a></li>
+        <li><a href="/items/index.erb">Items</a></li>
+        <li><a href="/invoices/index.erb">Invoices</a></li>
+      </ul>
+    </nav>
+  </header>
+
 <h1>Merchants</h1>
 <h2><a href='/merchants/new'>Add New Merchant</a></h2>
 
+<table style="width:100%">
 <% @merchants.each do |merchant| %>
-  <h3><a href="/merchants/<%= merchant.id %>"><%= merchant.name %></a></h3>
-  <ul>
-    Created at:<li><%= merchant.created_at %></li>
-    Updated at:<li><%= merchant.updated_at%></li>
-  </ul>
-  <a id="edit" href="/merchants/<%= merchant.id %>/edit">Edit</a>
-  <form action="/merchants/<%= merchant.id %>" method="POST">
-    <input type="hidden" name="_method" VALUE='DELETE'>
-    <input type="submit" value="Delete"/>
-  </form>
-  
+  <tr>
+    <td><a href="/merchants/<%= merchant.id %>"><%= merchant.name %></a></td>
+
+    <td><button><a id="edit" href="/merchants/<%= merchant.id %>/edit">Edit</a></button></td>
+    <td><form action="/merchants/<%= merchant.id %>" method="POST">
+      <input type="hidden" name="_method" VALUE='DELETE'>
+      <input type="button" value="Delete"/>
+      </form>
+    </td>
+  </tr>
 <%end%>
+</table>
+
+</html>
