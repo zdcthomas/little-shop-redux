@@ -71,7 +71,6 @@ class LittleShopApp < Sinatra::Base
   end
 
   delete '/items/:id' do |id|
-    #item = Item.find(params[:id])
     Item.destroy(params[:id])
 
     redirect '/items'
