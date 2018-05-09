@@ -33,10 +33,10 @@ RSpec.describe "Merchant Dashboard" do
       visit("/merchants-dashboard")
 
       within('.avg_unit_price_1') do
-        page.should have_content(17.5)
+        expect(page).to have_content(17.5)
       end
       within('.avg_unit_price_2') do
-        page.should have_content(45.0)
+        expect(page).to have_content(45.0)
       end
     end 
 
@@ -52,10 +52,10 @@ RSpec.describe "Merchant Dashboard" do
 
       visit("/merchants-dashboard")
       within('.item_count_1') do
-        page.should have_content(4)
+        expect(page).to have_content(4)
       end
       within('.item_count_2') do
-        page.should have_content(2)
+        expect(page).to have_content(2)
       end
     end 
 
