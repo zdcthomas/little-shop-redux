@@ -8,6 +8,8 @@ class LittleShopApp < Sinatra::Base
   get '/invoices/:id' do
     if Invoice.exists?(params[:id])
       @invoice = Invoice.find(params[:id])
+      @merchant=@invoice.merchant
+      @items=@merchant.items
       erb :"invoices/show"
     else
       redirect not_found

@@ -1,6 +1,82 @@
-<h1> Invoice #<%= @invoice.id%></h1>
-<p>Customer Id: <%= @invoice.customer_id%></p>
-<p>Merchant Id: <%= @invoice.merchant_id%></p>
-<p>Status: <%= @invoice.status%></p>
-<p>Created_at: <%= @invoice.created_at%></p>
-<p>Updated_at: <%= @invoice.updated_at%></p>
+!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Invoice:<%=@invoice.id%> - <%=@invoice.status%></title>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/css/master.css"/>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/css/invoice/invoice_show.css"/>
+  </head>
+
+  <body>
+
+    <header>
+      <span>LittleShop</span>
+      <nav>
+        <ul>
+          <li><a href="/merchants">Merchants</a></li>
+          <li><a href="/items">Items</a></li>
+          <li><a href="/invoices">Invoices</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <banner>
+      <div class="center">
+        <h1>Invoice: <%=@invoice.id%> - <%=@invoice.status%></h1>
+        <div class="banner_buttons">
+          <a  href='/invoices/<%=@invoice.id%>/edit'>
+            <button id="edit_button" type="button">
+              Edit
+            </button>
+          </a>
+          <form id="Delete" action="/invoices/<%= @invoice.id %>" method="POST">
+            <input type="hidden" name="_method" VALUE='DELETE'>
+            <input class="delete_button" type="submit" value="Delete"/>
+          </form>
+        </div>
+      </div>
+    </banner>
+    <content>
+      <table>
+        <tr>
+          <th>
+            Item Id
+          </th>
+
+          <th>
+            Item Title
+          </th>
+
+          <th>
+            Quantity
+          </th>
+
+          <th>
+            Unit Price
+          </th>
+        <% @items.each do |item| %>
+          <tr>
+            <td>
+              <a href="/items/<%=item.id%>">
+                <%=item.id%>
+              </a>
+            </td>
+
+            <td>
+              <%=item.name%>
+            </td>
+    
+            <td>
+            <%=@invoice.quantity%>
+            </td>
+              
+            <td>
+              <%=item.unit_price%>
+            </td>
+          </tr>
+        <%end%>
+      </table>
+    </content>
+
+  </body>
+</html>
