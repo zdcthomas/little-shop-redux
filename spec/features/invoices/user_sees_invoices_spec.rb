@@ -17,6 +17,7 @@ RSpec.describe 'A User' do
 
   describe 'visits a specific invoice' do
     it 'should display a certain invoice if that invoice exists' do
+      skip
       Invoice.create(id: 1, merchant_id: 12335938, customer_id: 1, status: 'pending')
 
       visit '/invoices/1'
@@ -35,6 +36,7 @@ RSpec.describe 'A User' do
 
   describe 'tries to edit an invoice status' do
     it 'should change valid pararmeters' do
+      skip
       Invoice.create(id: 1, merchant_id: 12335938, customer_id: 1, status: 'pending')
 
       visit '/invoices/1/edit'
