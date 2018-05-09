@@ -1,5 +1,5 @@
 class LittleShopApp < Sinatra::Base
-  
+
   get '/invoices' do
     @invoices = Invoice.all
     erb :"invoices/index"
@@ -50,6 +50,7 @@ class LittleShopApp < Sinatra::Base
 
   get '/items/new' do
     @items = Item.all
+    @merchants = Merchant.all
     erb :'items/new'
   end
 
@@ -70,7 +71,6 @@ class LittleShopApp < Sinatra::Base
   end
 
   delete '/items/:id' do |id|
-    #item = Item.find(params[:id])
     Item.destroy(params[:id])
 
     redirect '/items'
@@ -78,6 +78,7 @@ class LittleShopApp < Sinatra::Base
 
   get '/items/:id/edit' do
     @item = Item.find(params[:id])
+    @merchants = Merchant.all
     erb :'items/edit'
   end
 
@@ -94,6 +95,19 @@ class LittleShopApp < Sinatra::Base
     redirect '/items'
   end
 
+  get '/merchants-dashboard' do
+    @merchants = Merchant.all
+    @merchants_with_info = Merchant.info
+    @highest_item_count = Merchant.most_items
+    @highest_priced_item = Merchant.highest_priced_item
+    erb :"merchants/merchants-dashboard"
+  end
+
+  get '/merchants' do
+    @merchants = Merchant.all
+    erb :"merchants/index"
+  end
+
   get '/merchants/new' do
     erb :'merchants/new'
   end
@@ -105,30 +119,33 @@ class LittleShopApp < Sinatra::Base
 
   get '/merchants/:id' do
     @merchant = Merchant.find(params[:id])
+    @items = @merchant.items
     erb :'merchants/show'
   end
 
   put '/merchants/:id' do
-    merchant = Merchant.find(params[:id])
-    merchant.update(params[:merchant])
+    @merchant = Merchant.find(params[:id])
+    @merchant.update(params[:merchant])
     redirect '/merchants'
   end
 
   post '/merchants/' do
     merchant = Merchant.new(params[:merchant])
     merchant.save
+
     redirect '/merchants'
   end
 
   delete '/merchants/:id' do |id|
     Merchant.destroy(id.to_i)
+
     redirect '/merchants'
   end
-  
+
   not_found do
     status 404
   end
-  
+
 end
 
 #export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES << RUN THIS FOR EVERY NEW TERMINAL SESSION!!

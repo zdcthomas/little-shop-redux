@@ -1,10 +1,28 @@
+<head>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" type="text/css" media="screen" href="./stylesheets/css/master.css" />
+</head>
+
+<body>
+  <header>
+    <span>LittleShop</span>
+      <nav>
+        <ul>
+          <li><a href="/merchants">Merchants</a></li>
+          <li><a href="/items">Items</a></li>
+          <li><a href="/invoices">Invoices</a></li>
+        </ul>
+      </nav>
+    </span>
+  <header> 
+
 <h1>All Items</h1>
 
 <div id="items">
   <% @items.each do |item| %>
-    <h3><a href='/items/<%= item.id %>'><%= item.title %></a> </h3>
+    <h3><a href='/items/<%= item.id %>'><%= item.name %></a> </h3>
     <p>Description: <%= item.description %></p>
-    <p>Price: $<%= item.price %></p>
+    <p>Price: $<%= item.unit_price %></p>
     <p><img id="item_photo_<%=item.id%>" src='<%= item.img %>'</p>
 
   <form action="/items/<%= item.id %>" method="POST">
@@ -15,3 +33,4 @@
 
   <h2><a class='new' href='/items/new'>Add a new item</h2>
 </div>
+</body>

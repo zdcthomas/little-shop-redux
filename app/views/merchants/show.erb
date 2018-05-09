@@ -1,7 +1,56 @@
 <!DOCTYPE html>
-<h1><%= @merchant.name %></h1>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title><%=@merchant.name%></title>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/css/master.css"/>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/css/merchants/merchant-show.css"/>
+  </head>
 
-Created at:<p><%= @merchant.created_at %></p>
-Updated at:<p><%= @merchant.updated_at%></p>
+  <body>
 
-<a href="/merchants">Merchant Index</a>
+    <header>
+      <span>LittleShop</span>
+      <nav>
+        <ul>
+          <li><a href="/merchants">Merchants</a></li>
+          <li><a href="/items">Items</a></li>
+          <li><a href="/invoices">Invoices</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <banner>
+      <a id="dashboard" href="/merchants-dashboard"><p>Dashboard</p></a>
+      <div class="center">
+        <h1><%= @merchant.name %></h1>
+        <div class="banner_buttons">
+          <a  href='/merchants/<%=@merchant.id%>/edit'>
+            <button id="edit_button" type="button">
+              Edit
+            </button>
+          </a>
+          <form id="Delete" action="/merchants/<%= @merchant.id %>" method="POST">
+            <input type="hidden" name="_method" VALUE='DELETE'>
+            <input class="delete_button" type="submit" value="Delete"/>
+          </form>
+        </div>
+      </div>
+    </banner>
+    <content>
+      <ul>
+        <% @items.each do |item| %>
+          <li class="item_display" >
+            <img src="<%=item.img%>">
+            <a href='/items/<%=item.id%>'>
+              <%= item.name %>
+            </a>
+            </br>
+            <%= item.unit_price%>
+          </li>
+        <%end%>
+      </ul>
+    </content>
+
+  </body>
+</html>

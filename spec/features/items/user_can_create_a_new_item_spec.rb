@@ -9,9 +9,9 @@ RSpec.describe 'Visitors' do
   it 'should save new item information' do
     visit('/items/new')
     within 'form' do
-      fill_in 'title', :with=> 'thing'
+      fill_in 'name', :with=> 'thing'
       fill_in 'description', :with=> 'information'
-      fill_in 'price', :with=> 6
+      fill_in 'unit_price', :with=> 6
       fill_in 'image', :with=> 'http://www.suttonsilver.co.uk/wp-content/uploads/blog-stock-02.jpg'
     end
     click_button('Submit')
@@ -23,9 +23,9 @@ RSpec.describe 'Visitors' do
   it 'should redirect user to index' do
     visit('/items/new')
     within 'form' do
-      fill_in 'title', :with=> 'thing'
+      fill_in 'name', :with=> 'thing'
       fill_in 'description', :with=> 'information'
-      fill_in 'price', :with=> 6
+      fill_in 'unit_price', :with=> 6
       fill_in 'image', :with=> 'http://www.suttonsilver.co.uk/wp-content/uploads/blog-stock-02.jpg'
     end
     click_button('Submit')
