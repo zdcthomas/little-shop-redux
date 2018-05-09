@@ -18,7 +18,7 @@
   <h1>Edit <%= @item.name %></h1>
 
 
-  <form class='edit-item' action='/items/<%= @item.id %>/edit' method='post'>
+  <form class='edit-item' action='/items/<%= @item.id %>' method='post'>
       <input type='hidden' name='_method' value='PUT'>
         <p>Name: <input type='text' name='item[name]' value='<%= @item.name %>'></p>
         <p>Description: <input type='text' name='item[description]' value='<%= @item.description %>'></p>
