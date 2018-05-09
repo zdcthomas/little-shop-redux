@@ -28,14 +28,15 @@
     </banner>
 
 
-
 <body>
+ <content>
   <% @invoices.each do |invoice|%>
-    <div class="list">
-      <h1><%= invoice.id %> </h1>
-      <a class='edit_button' href="/invoices/<%= invoice.id  %>/edit">Edit</a>
-      <input type="hidden" name="_method" value="DELETE">
-      <input class='delete_button' type="submit" id="delete_invoice_<%= invoice.id %>" value="delete ">
-    </div>
-  <% end %>
+    <table>
+          <h1><%= invoice.id %> </h1>
+          <a class='edit_button' href="/invoices/<%= invoice.id  %>/edit">Edit</a>
+          <input type="hidden" name="_method" value="DELETE">
+          <input class='delete_button' type="submit" id="delete_invoice_<%= invoice.id %>" value="delete ">
+      <% end %>
+    </table>
+</content>
   </body>
