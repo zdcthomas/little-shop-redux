@@ -43,21 +43,21 @@
     <div class="merchant_cards">
       <%@merchants.each do |merchant|%>
         <%info=@merchants_with_info.where('merchant_id == merchant.id')%>
-        <ul class="merchant_card" id="merchant_<%=merchant.id%>_display">
+        <ul class="merchant_card" id="merchant_<%=merchant.id%>">
           <a href="/merchants/<%=merchant.id%>">
             <%=merchant.name%>
           </a>
-          <li>
+          <li class="item_count_<%=merchant.id%>">
             <u>Item Count:</u></br>
-            <%=info.item_count%>
+            <%=merchant.items.count%>
           </li>
-          <li>
+          <li class="avg_unit_price_<%=merchant.id%>">
             <u>Avg Item Price:</u></br>
-            <%=info.avg_price%>
+            <%=merchant.items.average(:unit_price).round(2) %>
           </li>
-          <li>
+          <li class="total_cost_<%=merchant.id%>">
             <u>Total Cost of Items:</u></br>
-            <%=info.total_cost%>
+            <%=merchant.items.sum(:unit_price) %>
         </li>
         </ul>
       <%end%>

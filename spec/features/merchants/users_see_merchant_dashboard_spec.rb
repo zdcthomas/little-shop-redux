@@ -11,10 +11,14 @@ RSpec.describe "Merchant Dashboard" do
       merchant_2.items.create(name: "biz", description: "bar", unit_price: 50, img: "jkf")
 
       
-      visit("/merchant-dashboard")
-
-      expect(page).to have_css("#merchant_1")
-      expect(page).to have_css("#merchant_2")
+      visit("/merchants-dashboard")
+      # save_and_open_page
+      within('#merchant_1') do
+        expect(page).to have_content('hello')
+      end
+      within('#merchant_2') do
+        expect(page).to have_content('jabba')
+      end
     end
     it "should show average unit price" do
       merchant_1 = Merchant.create(name: "hello")
@@ -26,10 +30,14 @@ RSpec.describe "Merchant Dashboard" do
       merchant_2.items.create(name: "foo", description: "bar", unit_price: 40, img: "jkf")
       merchant_2.items.create(name: "biz", description: "bar", unit_price: 50, img: "jkf")
 
-      visit("/merchant-dashboard")
+      visit("/merchants-dashboard")
 
-      expect(page.merchant_1.avg_unit_price).to eq(35)
-      expect(page.merchant_2.avg_unit_price).to eq(45)
+      within('.avg_unit_price_1') do
+        page.should have_content(17.5)
+      end
+      within('.avg_unit_price_2') do
+        page.should have_content(45.0)
+      end
     end 
 
     it "should show item count" do
@@ -42,10 +50,13 @@ RSpec.describe "Merchant Dashboard" do
       merchant_2.items.create(name: "foo", description: "bar", unit_price: 40, img: "jkf")
       merchant_2.items.create(name: "biz", description: "bar", unit_price: 50, img: "jkf")
 
-      visit("/merchant-dashboard")
-
-      expect(page.merchant_1.item_count).to eq(4)
-      expect(page.merchant_2.item_count).to eq(2)
+      visit("/merchants-dashboard")
+      within('.item_count_1') do
+        page.should have_content(4)
+      end
+      within('.item_count_2') do
+        page.should have_content(2)
+      end
     end 
 
     it "should show total cost" do
@@ -58,10 +69,13 @@ RSpec.describe "Merchant Dashboard" do
       merchant_2.items.create(name: "foo", description: "bar", unit_price: 40, img: "jkf")
       merchant_2.items.create(name: "biz", description: "bar", unit_price: 50, img: "jkf")
 
-      visit("/merchant-dashboard")
-
-      expect(page.merchant_1.total_cost).to eq(70)
-      expect(page.merchant_2.total_cost).to eq(90)
+      visit("/merchants-dashboard")
+      within('.total_cost_1') do
+        expect(page).to have_content(70)
+      end
+      within('.total_cost_2') do
+        expect(page).to have_content(90)
+      end
     end
 
     it "should show merchant names" do
@@ -74,7 +88,7 @@ RSpec.describe "Merchant Dashboard" do
       merchant_2.items.create(name: "fool", description: "bar", unit_price: 40, img: "jkf")
       merchant_2.items.create(name: "biz", description: "bar", unit_price: 50, img: "jkf")
 
-      visit("/merchant-dashboard")
+      visit("/merchants-dashboard")
 
       expect(page).to have_content("hello")
       expect(page).to have_content("jabba")
@@ -90,11 +104,14 @@ RSpec.describe "Merchant Dashboard" do
       merchant_2.items.create(name: "fool", description: "bar", unit_price: 40, img: "jkf")
       merchant_2.items.create(name: "biz", description: "bar", unit_price: 50, img: "jkf")
 
-      visit("/merchant-dashboard")
+      visit("/merchants-dashboard")
 
-      
-      expect(page.most_items).to have_content("hello")
-      expect(page.highest_item).to have_content("jabba")
+      within('#most_items') do
+        expect(page).to have_content('hello')
+      end
+      within('#highest_price') do
+        expect(page).to have_content('jabba')
+      end
     end
   end
 end
