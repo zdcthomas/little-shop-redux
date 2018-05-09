@@ -1,18 +1,57 @@
 <head>
-  <link rel="stylesheet" type='text/css' href="/stylesheets/css/invoice_index.css">
+  <link rel="stylesheet" type='text/css' href="/stylesheets/css/master.css">
+  <link rel="stylesheet" type='text/css' href="/stylesheets/css/invoice/invoice_index.css">
 </head>
 
-<h1>Invoices</h1>
-
-<div class='grid-container'>
 <body>
-  <% @invoices.each do |invoice|%>
-    <div class="grid-item">
-      <h1><%= invoice.id %> </h1>
-      <a href="/invoices/<%= invoice.id  %>/edit">Edit</a>
-      <input type="hidden" name="_method" value="DELETE">
-      <input type="submit" id="delete_invoice_<%= invoice.id %>" value="delete ">
-    </div>
-  <% end %>
-  </body>
-</div>
+  <header>
+    <span>LittleShop</span>
+    <nav>
+      <ul>
+        <li><a href="/merchants">Merchants</a></li>
+        <li><a href="/items">Items</a></li>
+        <li><a href="/invoices">Invoices</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <banner>
+      <a id="dashboard" href="/invoices-dashboard">
+        <p>Dashboard</p>
+      </a>
+      <span class="center">
+        <h1>Invoices</h1>
+      </span>
+  </banner>
+
+  <content>
+    <table>
+      <% @invoices.each do |invoice| %>
+        <tr id="invoice_<%=invoice.id%>">
+          <td>
+            <a class="title" href="/invoices/<%= invoice.id %>">
+              <%= invoice.merchant_id %>
+            </a>
+            <div class="table_buttons">
+              <ul>
+                <li>
+                  <a  id="edit_button_<%=invoice.id%>" href="/invoices/<%= invoice.id%>/edit">
+                    <button class="edit_button">
+                      Edit
+                    </button>
+                  </a>
+                </li>
+                <li>
+                  <form  action="/invoices/<%= invoice.id %>" method="POST">
+                    <input type="hidden" name="_method" VALUE='DELETE'>
+                    <input id = "delete_invoice_<%=invoice.id%>" class="delete_button" type="submit" value="Delete"/>
+                  </form>
+                </li>
+              </ul>
+            </div>
+          </td>
+        </tr>
+      <%end%>
+    </table>
+  </content>
+</body>
